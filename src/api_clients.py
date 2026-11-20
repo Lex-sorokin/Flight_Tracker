@@ -16,8 +16,8 @@ class NominatimAPI(BaseAPIClient):
     """Клиент для получения географических границ стран через Nominatim API."""
 
     def __init__(self):
-        self.base_url = "https://openstreetmap.org"
-        self.headers = {"User-Agent": "FlightTrackerCoursework/1.0"}
+        self.base_url = "https://nominatim.openstreetmap.org/search"   # исправления по документации
+        self.headers = {"User-Agent": "FlightTrackerCoursework/1.0"}  # это лицензионная подпись
 
     def get_data(self, country_name: str) -> dict | None:
         """
@@ -53,7 +53,7 @@ class OpenSkyAPI(BaseAPIClient):
     """Клиент для получения данных о воздушных судах через OpenSky Network API."""
 
     def __init__(self):
-        self.base_url = "https://opensky-network.org"
+        self.base_url = "https://opensky-network.org/api/states/all"   # по документации
 
     def get_data(self, bbox: dict) -> list[dict]:
         """
